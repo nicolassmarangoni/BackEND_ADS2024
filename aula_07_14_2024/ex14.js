@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 rl.question('Quanto o aluno tirou na primeira prova? ', (nota1Input) => {
     const nota1 = parseFloat(nota1Input);
 
-    rl.question('Quanto o aluno tirou na segunda prova?', (nota2Input) => {
+    rl.question('Quanto o aluno tirou na segunda prova? ', (nota2Input) => {
         const nota2 = parseFloat(nota2Input);
 
         rl.question('Quanto o aluno tirou na terceira prova? ', (nota3Input) => {
@@ -22,6 +22,8 @@ rl.question('Quanto o aluno tirou na primeira prova? ', (nota1Input) => {
 
             if (resultadoMedia > 6) {
                 console.log("Aprovado");
+            } else if (resultadoMedia >= 4 && resultadoMedia <= 5) {
+                console.log("Exame");
             } else {
                 console.log("Reprovado");
             }
@@ -30,3 +32,4 @@ rl.question('Quanto o aluno tirou na primeira prova? ', (nota1Input) => {
         });
     });
 });
+
