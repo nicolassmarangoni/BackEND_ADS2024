@@ -1,16 +1,17 @@
-
-
-class Pessoa{
-
-    constructor(){
-        this.nome= null; 
-        this.idade=null;
-        this.profissao=null;
-        this.salario=null;
+class Pessoa {
+    constructor(nome, idade, profissao, salario) {
+        this.nome = nome;
+        this.idade = idade;
+        this.profissao = profissao;
+        this.salario = salario;
     }
-    
-    ligar_motor(){
-        this.motor = true
-        }
+
+    exibetrabalho(nomeempresa, tempoTrabalho) {
+        console.log(nomeempresa); 
+        console.log(tempoTrabalho); 
+    }
 }
-   
+
+const novaPessoa = new Pessoa('Nicolas', 21, 'técnico', 3000);
+
+novaPessoa.exibetrabalho('CPFL', 4);
