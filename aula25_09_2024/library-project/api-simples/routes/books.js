@@ -15,7 +15,14 @@ router.post('/', async (req, res) => {
 });
 
 //*** leitura (GET) */
-
+router.get('/', async (req, res) => {
+    try {
+      const books = await Book.find(); // Buscamos todos os livros
+      res.status(200).json(books); // Retornamos a lista de livros
+    } catch (error) {
+      res.status(500).json({ message: 'Erro ao buscar livros', error }); // Retornamos erro, se houver
+    }
+  });
 
 //** atualização (PUT) */
 router.put('/:id', async (req, res) => {
