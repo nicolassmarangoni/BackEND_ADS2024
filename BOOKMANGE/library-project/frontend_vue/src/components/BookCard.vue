@@ -1,30 +1,32 @@
 <template>
-  <div class="col-md-4">
-    <img :src="book.image" class="img-fluid" :alt="book.title">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ book.title }}</h5>
-        <p class="card-text">{{ book.description }}</p>
-        <h6>Avaliação:</h6>
-        <div>
-          <span class="star" v-for="star in 4" :key="star">&#9733;</span>
-          <span class="star">&#9734;</span> <!-- Estrela vazia -->
-          <span>(4/5)</span>
-        </div>
-        <a href="#" class="btn btn-primary mt-3">Reservar Livro</a>
-      </div>
-    </div>
+  <div class="col-md-3 mb-4">
+    <a :href="link">
+      <img :src={} class="img-fluid" :alt="title">
+    </a>
+    <h5 class="mt-2">{{ title }}</h5>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    book: Object,
+    title: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    link: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
 
 <style scoped>
-@import './assets/styles.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url(C:\Users\dsadm\Desktop\aaaaaaaaaaa\BackEND_ADS2024\BOOKMANGE\library-project\frontend_vue\src\assets\styles.css);
 </style>

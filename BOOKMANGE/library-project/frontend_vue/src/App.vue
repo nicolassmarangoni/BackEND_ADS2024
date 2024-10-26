@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <HomePage/>
+    <HomePage />
   </div>
 </template>
 
@@ -19,4 +19,5 @@ export default {
 
 <style>
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url(C:\Users\dsadm\Desktop\aaaaaaaaaaa\BackEND_ADS2024\BOOKMANGE\library-project\frontend_vue\src\assets\styles.css);
 </style>

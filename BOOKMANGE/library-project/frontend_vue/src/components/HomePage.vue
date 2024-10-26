@@ -15,95 +15,21 @@
       </div>
     </div>
 
-    <!-- Livros em Alta -->
-    <div class="container text-light mt-4">
-      <h2>LIVROS EM ALTA</h2>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="livro1.html">
-             <img :src="require(img)" class="img-fluid" alt="Capa do livro Marcal">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="livro2.html">
-            <img src="fotos/casey_livro.jpg" class="img-fluid" alt="Capa do livro Casey">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="livro3.html">
-            <img src="fotos/francisco_livro.JPG" class="img-fluid" alt="Capa do livro Francisco">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="livro4.html">
-            <img src="fotos/markus_livro.jpg" class="img-fluid" alt="Capa do livro Markus">
-          </a>
-        </div>
-      </div>
-    </div>
+    <!-- Seções de Livros -->
+    <BookSection
+      title="LIVROS EM ALTA"
+      :books="highRatedBooks"
+    />
+    <BookSection
+      title="ÚLTIMOS ADICIONADOS"
+      :books="recentlyAddedBooks"
+    />
+    <BookSection
+      title="MAIS LIDOS DA SEMANA"
+      :books="mostReadBooks"
+    />
 
-    <br><br>
-    <!-- Últimos Adicionados -->
-    <div class="container text-light">
-      <h2>ULTIMOS ADICIONADOS</h2>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-5.html">
-            <img src="fotos/marcal_livro.jpg" class="img-fluid" alt="Capa do livro Marcal">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-6.html">
-            <img src="fotos/casey_livro.jpg" class="img-fluid" alt="Capa do livro Casey">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-7.html">
-            <img src="fotos/francisco_livro.JPG" class="img-fluid" alt="Capa do livro Francisco">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-8.html">
-            <img src="fotos/markus_livro.jpg" class="img-fluid" alt="Capa do livro Markus">
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <br><br>
-    <!-- Mais Lidos da Semana -->
-    <div class="container text-light">
-      <h2>MAIS LIDOS DA SEMANA</h2>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-9.html">
-            <img src="fotos/marcal_livro.jpg" class="img-fluid" alt="Capa do livro Marcal">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-10.html">
-            <img src="fotos/casey_livro.jpg" class="img-fluid" alt="Capa do livro Casey">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-11.html">
-            <img src="/library-project/frontend_vue/src/assets/fotos/marcal_livro.jpg" class="img-fluid" alt="Capa do livro Francisco">
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a href="link-para-pagina-do-livro-12.html">
-            <img src="fotos/markus_livro.jpg" class="img-fluid" alt="Capa do livro Markus">
-          </a>
-        </div>
-      </div>
-    </div>
-
+    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
       <div class="container">
         <p class="mb-0">© 2024 BIBLIOTECH. Todos os direitos reservados.</p>
@@ -117,15 +43,39 @@
 </template>
 
 <script>
+import BookSection from './BookSection.vue';
+
 export default {
-  name: 'HomePage', // Nome do componente multi-palavra
+  name: 'HomePage',
+  components: {
+    BookSection,
+  },
   data() {
     return {
-      img: '@/assets/fotos/marcal_livro.jpg' // ou o caminho relativo correto
+      highRatedBooks: [
+        { id: 1, title: 'Marcal', image: '', link: 'livro1.html' },
+        { id: 2, title: 'Casey', image: 'fotos/casey_livro.jpg', link: 'livro2.html' },
+        { id: 3, title: 'Francisco', image: 'fotos/francisco_livro.JPG', link: 'livro3.html' },
+        { id: 4, title: 'Markus', image: 'fotos/markus_livro.jpg', link: 'livro4.html' },
+      ],
+        recentlyAddedBooks: [
+          { id: 5, title: 'Marcal livro', image: '...as', link: 'link-para-pagina-do-livro-5.html' },
+          { id: 6, title: 'Casey', image: 'fotos/casey_livro.jpg', link: 'link-para-pagina-do-livro-6.html' },
+          { id: 7, title: 'Francisco', image: 'fotos/francisco_livro.JPG', link: 'link-para-pagina-do-livro-7.html' },
+          { id: 8, title: 'Markus', image: 'fotos/markus_livro.jpg', link: 'link-para-pagina-do-livro-8.html' },
+        ],
+      mostReadBooks: [
+        { id: 9, title: 'Marcal', image: 'fotos/marcal_livro.jpg', link: 'link-para-pagina-do-livro-9.html' },
+        { id: 10, title: 'Casey', image: 'fotos/casey_livro.jpg', link: 'link-para-pagina-do-livro-10.html' },
+        { id: 11, title: 'Francisco', image: 'fotos/francisco_livro.JPG', link: 'link-para-pagina-do-livro-11.html' },
+        { id: 12, title: 'Markus', image: 'fotos/markus_livro.jpg', link: 'link-para-pagina-do-livro-12.html' },
+      ],
     };
-  }
-}   
-
+  },
+};
 </script>
+
 <style scoped>
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url(C:\Users\dsadm\Desktop\aaaaaaaaaaa\BackEND_ADS2024\BOOKMANGE\library-project\frontend_vue\src\assets\styles.css);
 </style>
