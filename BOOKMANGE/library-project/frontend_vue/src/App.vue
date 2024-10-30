@@ -1,23 +1,36 @@
 <template>
   <div id="app">
     <NavBar />
-    <HomePage />
+    <ImageCarousel />
+    <div class="container text-light mt-4">
+      <h2>LIVROS EM ALTA</h2>
+      <BookGrid :books="trendingBooks" />
+    </div>
+    <div class="container text-light mt-4">
+      <h2>ULTIMOS ADICIONADOS</h2>
+      <BookGrid :books="newBooks" />
+    </div>
+    <div class="container text-light mt-4">
+      <h2>MAIS LIDOS DA SEMANA</h2>
+      <BookGrid :books="popularBooks" />
+    </div>
+    <SiteFooter />
   </div>
 </template>
 
-<script>
+<script setup>
 import NavBar from './components/NavBar.vue';
-import HomePage from './components/HomePage.vue'; // Importa diretamente o Home.vue
+import ImageCarousel from './components/ImageCarousel.vue';
+import BookGrid from './components/BookGrid.vue';
+import SiteFooter from './components/SiteFooter.vue';
 
-export default {
-  components: {
-    NavBar,
-    HomePage,
-  },
-};
+const trendingBooks = [
+  { src: require('./fotos/marcal_livro.jpg'), link: 'livro1.html', alt: 'Capa do livro Marcal' },
+  { src: require('./fotos/casey_livro.jpg'), link: 'livro2.html', alt: 'Capa do livro Casey' },
+  { src: require('./fotos/marcal_livro.jpg'), link: 'livro3.html', alt: 'Capa do livro Francisco' },
+  { src: require('./fotos/markus_livro.jpg'), link: 'livro4.html', alt: 'Capa do livro Markus' }
+];
+
+const newBooks = [...trendingBooks]; // Exemplo de livros novos
+const popularBooks = [...trendingBooks]; // Exemplo de livros populares
 </script>
-
-<style>
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import url(C:\Users\dsadm\Desktop\aaaaaaaaaaa\BackEND_ADS2024\BOOKMANGE\library-project\frontend_vue\src\assets\styles.css);
-</style>
